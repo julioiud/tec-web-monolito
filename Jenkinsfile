@@ -18,9 +18,4 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-       // enviar un email después del build
-    }
-  }
 }
