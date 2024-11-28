@@ -8,11 +8,7 @@ pipeline {
       }
     }
     stage('Construir imagen de Docker') {
-      /*steps {
-        script {
-          docker.build('monolito', '.')
-        }
-      }*/
+      
     }
     stage('Desplegar contenedor Docker') {
       steps {
