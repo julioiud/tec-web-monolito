@@ -4,15 +4,11 @@ pipeline {
   stages {
     stage('Clonar repositorio') {
       steps {
-        git 'https://github.com/julioiud/tec-web-monolito.git'
+        git branch: 'main', url: 'https://github.com/julioiud/tec-web-monolito.git'
       }
     }
     stage('Construir imagen de Docker') {
-      steps {
-        script {
-          docker.build('monolito:v1', '.')
-        }
-      }
+    
     }
     stage('Desplegar contenedor Docker') {
       steps {
@@ -20,6 +16,11 @@ pipeline {
           sh 'docker-compose up -d'
         }
       }
+    }
+  }
+  post {
+    always {
+       // enviar un email después del build
     }
   }
 }
