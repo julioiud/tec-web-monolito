@@ -21,6 +21,7 @@ pipeline {
       }
     }
   }
+  
   post {
         always {
             // Paso para enviar el correo electrónico después del build
