@@ -21,4 +21,15 @@ pipeline {
       }
     }
   }
+  post {
+        always {
+            // Paso para enviar el correo electrónico después del build
+            emailext (
+                subject: "Estado del build: ${currentBuild.currentResult}",
+                body: "Se ha completado el build exitosamente. Puedes acceder a los detalles en ${env.BUILD_URL}",
+                to: 'mateoperezbaena@gmail.com',
+                from: 'jenkins@iudigital.edu.co'
+            )
+        }
+  }
 }
